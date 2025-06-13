@@ -1,0 +1,103 @@
+<?php
+    $title = "Hotel Website";
+    $hotelName = "Noble Hotel";
+    $hotelLogo = "noble hotel logo.jpg";
+    $backgroundImage = "noble hotel backround pic.jpg";
+    $rooms = [
+        ["title" => "Single Room", "image" => "noble hotel room pic.jpg", "description" => "A cozy room perfect for solo travelers. Includes a comfortable bed, free Wi-Fi, and a private bathroom."],
+        ["title" => "Double Room", "image" => "noble hotel room pic 3.jpg", "description" => "Ideal for couples or friends. Features two comfortable beds, free Wi-Fi, and a private bathroom."],
+        ["title" => "Suite", "image" => "noble hotel room pic 2.jpg", "description" => "Experience luxury in our suite. Includes a king-sized bed, living area, free Wi-Fi, and a private bathroom."],
+    ];
+    $restaurantDishes = [
+        ["title" => "Sweets", "image" => "noble hotel food pic 3.jpg", "description" => "A delicious sweets dish prepared by our expert chefs. Enjoy a variety of flavors and fresh ingredients."],
+        ["title" => "Bufae", "image" => "noble hotel food pic 4.jpg", "description" => "Indulge in our exquisite desserts, crafted to perfection with the finest ingredients."],
+        ["title" => "Middle Eastern and Western Food", "image" => "noble hotel food pic 1.jpg", "description" => "Enjoy your meal in our elegant dining area, designed for comfort and ambiance."],
+    ];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $title; ?></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <a href="index.php" class="flex items-center py-4 px-2">
+                        <img src="<?php echo $hotelLogo; ?>" alt="Hotel Logo" class="h-8 w-8 mr-2 rounded-full">
+                        <span class="font-semibold text-gray-500 text-lg"><?php echo $hotelName; ?></span>
+                    </a>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="index.php" class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold">Home</a>
+                        <a href="rooms.php" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Rooms</a>
+                        <a href="contact.php" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact</a>
+                        <a href="booking.php" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Booking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Home Page -->
+    <div class="container mx-auto mt-10">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-4 text-center">Welcome to <?php echo $hotelName; ?></h1>
+            <p class="text-gray-700 mb-6 text-center">Experience luxury and comfort at our hotel. We offer the best services and amenities to make your stay unforgettable.</p>
+            <img src="<?php echo $backgroundImage; ?>" alt="Hotel Background" class="w-full rounded-lg mb-6">
+        </div>
+    </div>
+    
+    <!-- Rooms Page -->
+    <div class="container mx-auto mt-10">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-4">Our Rooms</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <?php foreach ($rooms as $room): ?>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <img src="<?php echo $room['image']; ?>" alt="<?php echo $room['title']; ?>" class="w-full rounded-lg mb-4">
+                        <h2 class="text-xl font-bold mb-2"><?php echo $room['title']; ?></h2>
+                        <p class="text-gray-700 mb-4"><?php echo $room['description']; ?></p>
+                        <a href="booking.php" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-400 transition duration-300">Book Now</a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Restaurant Page -->
+    <div class="container mx-auto mt-10">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-4">Our Restaurant</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <?php foreach ($restaurantDishes as $dish): ?>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <img src="<?php echo $dish['image']; ?>" alt="<?php echo $dish['title']; ?>" class="w-full rounded-lg mb-4">
+                        <h2 class="text-xl font-bold mb-2"><?php echo $dish['title']; ?></h2>
+                        <p class="text-gray-700 mb-4"><?php echo $dish['description']; ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-white mt-10">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <h2 class="text-xl font-bold">Noble Hotel</h2>
+            <p class="text-gray-700">Erbil/Ankawa</p>
+            <p class="text-gray-700">Phone: 0750 431 2244</p>
+            <p class="text-gray-700">Email: info@noble-hotel.com</p>
+        </div>
+    </footer>
+</body>
+</html>
